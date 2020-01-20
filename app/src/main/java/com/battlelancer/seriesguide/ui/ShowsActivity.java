@@ -67,7 +67,7 @@ public class ShowsActivity extends BaseTopActivity implements
     public static final int NOW_TRAKT_USER_LOADER_ID = 106;
     public static final int NOW_TRAKT_FRIENDS_LOADER_ID = 107;
 
-    private ShowsTabPageAdapter tabsAdapter;
+    public ShowsTabPageAdapter tabsAdapter;
     private ViewPager viewPager;
 
     @SuppressWarnings("unused")
