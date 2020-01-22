@@ -158,7 +158,7 @@ class ShowsViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun reRunQuery() {
-        queryString.value = queryString.value
+        queryString.value
     }
 
 }
