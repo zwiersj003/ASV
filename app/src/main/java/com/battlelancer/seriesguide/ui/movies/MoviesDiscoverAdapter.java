@@ -15,7 +15,7 @@ import com.uwetrottmann.tmdb2.entities.BaseMovie;
 import java.util.ArrayList;
 import java.util.List;
 
-class MoviesDiscoverAdapter extends MoviesAdapter {
+public class MoviesDiscoverAdapter extends MoviesAdapter {
 
     static final int VIEW_TYPE_LINK = R.layout.item_discover_link;
     static final int VIEW_TYPE_HEADER = R.layout.item_discover_header;
@@ -99,7 +99,7 @@ class MoviesDiscoverAdapter extends MoviesAdapter {
     }
 
     @Override
-    BaseMovie getMovie(int position) {
+    public BaseMovie getMovie(int position) {
         return movies.get(position - links.size() - 1 /* header */);
     }
 
