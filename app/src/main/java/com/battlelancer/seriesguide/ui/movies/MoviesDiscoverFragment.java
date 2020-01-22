@@ -33,7 +33,7 @@ public class MoviesDiscoverFragment extends Fragment {
     @BindView(R.id.swipeRefreshLayoutMoviesDiscover) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.recyclerViewMoviesDiscover) RecyclerView recyclerView;
 
-    private MoviesDiscoverAdapter adapter;
+    public MoviesDiscoverAdapter adapter;
     private GridLayoutManager layoutManager;
     private Unbinder unbinder;
 

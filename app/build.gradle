@@ -113,9 +113,7 @@ android {
 
     buildTypes {
         release {
-            if (isCiBuild) {
-                ext.enableCrashlytics = false
-            }
+            ext.enableCrashlytics = false
 
             multiDexEnabled false
             minifyEnabled true
@@ -126,9 +124,7 @@ android {
             }
         }
         debug {
-            if (!rootProject.file('app/fabric.properties').exists()) {
-                ext.enableCrashlytics = false
-            }
+            ext.enableCrashlytics = false
 
             multiDexEnabled true
             // disable shrinking to use incremental dex in builds
