@@ -31,7 +31,7 @@ import timber.log.Timber;
 
 public class SeriesGuideDatabase {
 
-    public static final String DATABASE_NAME = "seriesdatabase";
+    public static final String DATABASE_NAME = "seriesdatabase-asv";
 
     public static final int DBVER_17_FAVORITES = 17;
     public static final int DBVER_18_NEXTAIRDATETEXT = 18;
