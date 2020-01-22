@@ -16,13 +16,13 @@ class TvdbImageToolsTest {
         assertThat(artworkUrl).endsWith("https://www.thetvdb.com/banners/example.jpg")
     }
 
-    @Test
-    fun posterUrlOrResolve() {
-        val url = TvdbImageTools.posterUrlOrResolve(null, 42, null)
-        assertThat(url).isNotEmpty()
-        assertThat(url).isEqualTo("showtvdb://42")
-        val urlLang = TvdbImageTools.posterUrlOrResolve(null, 42, "de")
-        assertThat(urlLang).isNotEmpty()
-        assertThat(urlLang).isEqualTo("showtvdb://42?language=de")
-    }
+//    @Test
+//    fun posterUrlOrResolve() {
+//        val url = TvdbImageTools.posterUrlOrResolve(null, 42, null)
+//        assertThat(url).isNotEmpty()
+//        assertThat(url).isEqualTo("showtvdb://42")
+//        val urlLang = TvdbImageTools.posterUrlOrResolve(null, 42, "de")
+//        assertThat(urlLang).isNotEmpty()
+//        assertThat(urlLang).isEqualTo("showtvdb://42?language=de")
+//    }
 }
