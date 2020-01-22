@@ -251,23 +251,10 @@ public class JsonExportTask extends AsyncTask<Void, Integer, Integer> {
                     return ERROR_FILE_ACCESS;
                 }
 
-                ParcelFileDescriptor pfd = context.getContentResolver()
-                        .openFileDescriptor(backupFileUri, "w");
-                if (pfd == null) {
+                if (!writeToFile(type, data, backupFileUri)) {
                     return ERROR_FILE_ACCESS;
                 }
-                FileOutputStream out = new FileOutputStream(pfd.getFileDescriptor());
 
-                if (type == BACKUP_SHOWS) {
-                    writeJsonStreamShows(out, data);
-                } else if (type == BACKUP_LISTS) {
-                    writeJsonStreamLists(out, data);
-                } else if (type == BACKUP_MOVIES) {
-                    writeJsonStreamMovies(out, data);
-                }
-
-                // let the document provider know we're done.
-                pfd.close();
             } else {
                 File backupFile;
                 if (type == BACKUP_SHOWS) {
@@ -312,6 +299,32 @@ public class JsonExportTask extends AsyncTask<Void, Integer, Integer> {
         }
 
         return SUCCESS;
+    }
+
+    /**
+     * @param type
+     * @param data
+     * @param backupFileUri
+     * @return
+     */
+    private boolean writeToFile(
+            @BackupType int type,
+            Cursor data, Uri backupFileUri) {
+        try (ParcelFileDescriptor pfd = context.getContentResolver()
+                .openFileDescriptor(backupFileUri, "w")) {
+            FileOutputStream out = new FileOutputStream(pfd.getFileDescriptor());
+            if (type == BACKUP_SHOWS) {
+                writeJsonStreamShows(out, data);
+            } else if (type == BACKUP_LISTS) {
+                writeJsonStreamLists(out, data);
+            } else if (type == BACKUP_MOVIES) {
+                writeJsonStreamMovies(out, data);
+            }
+            out.close();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     @Nullable
